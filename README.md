@@ -7,3 +7,4 @@ La primera tarea es hacer una Pull Request a este repositorio, agregando su nomb
 
 ## Colaboradores
 Luis Pignataro
+Enzo Frias borda
