@@ -15,6 +15,8 @@ namespace WSVenta
 {
     public class Startup
     {
+
+        readonly string MiCors = "MiCors";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +27,14 @@ namespace WSVenta
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MiCors,
+                                    builder =>
+                                 {
+                                    builder.WithOrigins("*");
+                                 });
+            });
             services.AddControllers();
         }
 
@@ -39,6 +49,8 @@ namespace WSVenta
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MiCors);
 
             app.UseAuthorization();
 
