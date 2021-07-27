@@ -26,8 +26,8 @@ namespace WSVenta.Controllers
                 using (VentaRealContext db = new VentaRealContext())
                 {
                     // var es una forma de darle el tipo de variable de acuerdo al valor
-                    var lst = db.Cliente.ToList();
-
+                    var lst = db.Cliente.OrderByDescending(d=>d.Id).ToList();
+                    
                     // 1=verdadero, 0=falso
                     onRespuesta.Exito = 1;
                     onRespuesta.Data = lst;
